@@ -1,0 +1,18 @@
+反省
+1,2,3　が10分程度で行けた(Python)
+
+4について
+PythonだとO(MN)でTLE(2100ms)。C++だと無理やりでも通りそうだが...?
+
+★優先度付きキュー
+import heapq (Python)
+heapq.heapify(a):配列aを優先度キュー構造にする(O(len(a)))
+heapq.heappop(a):配列aの最小値を抜き出す(O(log|a|))
+heap.heappush(a,tmp):数tmpをaにpushするO(log|a|)
+これを用いれば全体がO(M*log(N))でおさまる
+
+ある配列に対して最大値(最小値)を抜き出して操作して元の配列に入れるときにつかう
+
+今回だと値をいじくってソート(=O(N))をするとO(M*N)になってTLE
+
+茶色パフォ上位くらい(~700)
