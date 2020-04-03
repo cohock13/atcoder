@@ -1,8 +1,11 @@
 #include<iostream>
 using namespace std;
+
 int main(void){
-  int a;
-  cin>>a;
-  cout<<a<<endl;
-  return 0;
+    int N,M;
+    cin>>N>>M;
+    int ans1 = N*(N-1)/2;
+    int ans2 = M*(M-1)/2;
+    cout<<ans1+ans2<<endl;
+    return 0;
 }
