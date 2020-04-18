@@ -117,3 +117,23 @@ def S_LIST(): return list(map(str, input().split()))
 sys.setrecursionlimit(10 ** 9)
 inf = sys.maxsize
 mod = 10 ** 9 + 7
+
+##拡張ユークリッド(https://tech.camph.net/rsa-public-key-encryption/)
+def ex_euclid(x, y):
+    c0, c1 = x, y
+    a0, a1 = 1, 0
+    b0, b1 = 0, 1
+ 
+    while c1 != 0:
+        m = c0 % c1
+        q = c0 // c1
+ 
+        c0, c1 = c1, m
+        a0, a1 = a1, (a0 - q * a1)
+        b0, b1 = b1, (b0 - q * b1)
+ 
+    return c0, a0, b0
+
+a,b = map(int,input().split())
+c,a,b = ex_euclid(a,b)
+print(a,b)

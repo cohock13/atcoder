@@ -4,7 +4,6 @@ def fact(n):
     return math.factorial(n)
 
 ##繰り返し二乗法 O(logn)
-##pow(n,m,mod)であるのでこっちを使おう
 def pow(x, n):
       ans = 1
   while(n > 0):

@@ -1,0 +1,1 @@
+print(list(1919 for i in range(max(0,9))))
