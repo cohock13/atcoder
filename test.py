@@ -1,14 +1,29 @@
-import sys
+from collections import deque
 
-sys.setrecursionlimit(int(1e9))
+def solve(N,A,B,C,D):
 
+    que = deque()
+    res = 1e30
+    que.append((1,D))
 
-nCr = {}
-def cmb(n, r):
-    if r == 0 or r == n: return 1
-    if r == 1: return n
-    if (n,r) in nCr: return nCr[(n,r)]
-    nCr[(n,r)] = cmb(n-1,r) + cmb(n-1,r-1)
-    return nCr[(n,r)]
+    while que:
 
-print(cmb(int(1e6),int(1e3)))
+        n,cost = que.popleft()
+
+        if n == N:
+            res = min(res,cost)
+            continue
+        elif n > N:
+            res = min(res,cost+D*abs(N-n))
+            continue
+        else:
+            que.append((n*2,cost+A))
+            que.append((n*3,cost+B))
+            que.append((n*5,cost+C))
+            que.append((n+1,cost+D))
+
+    print(res)
+    return
+
+N,A,B,C,D = map(int,input().split())
+solve(N,A,B,C,D)
