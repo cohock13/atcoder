@@ -1,9 +1,6 @@
-import numpy as np
-
-
 N = int(input())
 HS = list(tuple(map(int,input().split())) for _ in range(N))
-HS = np.array(HS)
+
 ##実現できる高度を二部探索 O(NlogN)
 
 def check(m):
